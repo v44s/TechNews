@@ -1,0 +1,58 @@
+[{
+    "name": "Unhackable internet",
+    "desc": "An internet based on quantum physics will soon enable inherently secure communication. A team led by Stephanie Wehner, at Delft University of Technology, is building a network connecting four cities in the Netherlands entirely by means of quantum technology. Messages sent over this network will be unhackable.",
+    "image": "tech.jpg",
+    "founder": "Delft network",
+    "tag": "technology",
+    "votes": 15647
+},{
+    "name": "Hyper-personalized medicine",
+    "desc": "New classes of drugs that can be tailored to a person’s genes. If an extremely rare disease is caused by a specific DNA mistake—as several thousand are—there’s now at least a fighting chance for a genetic fix.",
+    "image": "med.jpg",
+    "founder": "A-T Children’s Project",
+    "tag": "medical",
+    "votes": 14563
+},{
+    "name": "Digital money",
+    "desc": "Last June Facebook unveiled a “global digital currency” called Libra. The idea triggered a backlash and Libra may never launch, at least not in the way it was originally envisioned. But it’s still made a difference: just days after Facebook’s announcement, an official from the People’s Bank of China implied that it would speed the development of its own digital currency in response. Now China is poised to become the first major economy to issue a digital version of its money, which it intends as a replacement for physical cash.",
+    "image": "tech.jpg",
+    "founder": "Facebook",
+    "tag": "technology",
+    "votes": 15151
+},{
+    "name": "Anti-aging drugs",
+    "desc": "Drugs that try to treat ailments by targeting a natural aging process in the body have shown promise.The first wave of a new class of anti-aging drugs have begun human testing. These drugs won’t let you live longer (yet) but aim to treat specific ailments by slowing or reversing a fundamental process of aging.",
+    "image": "med.jpg",
+    "founder": "Insilico Medicine",
+    "tag": "medical",
+    "votes": 11545
+},{
+    "name": "AI-discovered molecules",
+    "desc": "The universe of molecules that could be turned into potentially life-saving drugs is mind-boggling in size: researchers estimate the number at around 1060. That’s more than all the atoms in the solar system, offering virtually unlimited chemical possibilities—if only chemists could find the worthwhile ones.",
+    "image": "ai.jpg",
+    "founder": "Kebotix",
+    "tag": "ai|medical",
+    "votes": 14563
+},{
+    "name": "Satellite mega-constellations",
+    "desc": "Satellites that can beam a broadband connection to internet terminals. As long as these terminals have a clear view of the sky, they can deliver internet to any nearby devices. SpaceX alone wants to send more than 4.5 times more satellites into orbit this decade than humans have ever launched since Sputnik.",
+    "image": "tech.jpg",
+    "founder": "SpaceX",
+    "tag": "technology",
+    "votes": 13694
+},{
+    "name": "Quantum supremacy",
+    "desc": "Quantum computers store and process data in a way completely differently from the ones we’re all used to. In theory, they could tackle certain classes of problems that even the most powerful classical supercomputer imaginable would take millennia to solve, like breaking today’s cryptographic codes or simulating the precise behavior of molecules to help discover new drugs and materials.",
+    "tag": "technology|medical",
+    "founder": "Google",
+    "image": "tech.jpg",
+    "votes": 12456
+},{
+    "name": "Tiny AI",
+    "desc": "AI has a problem: in the quest to build more powerful algorithms, researchers are using ever greater amounts of data and computing power, and relying on centralized cloud services. This not only generates alarming amounts of carbon emissions but also limits the speed and privacy of AI applications.",
+    "image": "ai.jpg",
+    "founder": "Google",
+    "tag": "ai",
+    "votes": 1646
+}
+]
