@@ -1,10 +1,14 @@
 package com.example.technews.adapter;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
@@ -20,18 +24,14 @@ import java.util.Objects;
 public class ProductFeedAdapter extends PagedListAdapter<Product, ProductFeedAdapter.ProductViewHolder> {
     private static DiffUtil.ItemCallback<Product> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Product>() {
-                // Concert details may have changed if reloaded from the database,
-                // but ID is fixed.
                 @Override
                 public boolean areItemsTheSame(Product oldProduct, Product newProduct) {
-                    return false;
-//                    return oldProduct.getId() == newProduct.getId();
+                    return oldProduct.id == newProduct.id;
                 }
 
                 @Override
                 public boolean areContentsTheSame(Product oldProduct,Product newProduct) {
-                    return false;
-//                    return oldProduct.equals(newProduct);
+                    return oldProduct.id == newProduct.id;
                 }
             };
 
@@ -60,6 +60,7 @@ public class ProductFeedAdapter extends PagedListAdapter<Product, ProductFeedAda
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
 
         TextView name,founder,desc,votes;
+        Button vote,share,bookmark;
         ImageView img;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +69,10 @@ public class ProductFeedAdapter extends PagedListAdapter<Product, ProductFeedAda
             desc = itemView.findViewById(R.id.desc);
             votes = itemView.findViewById(R.id.votes);
             img = itemView.findViewById(R.id.image);
+
+            vote = itemView.findViewById(R.id.vote_btn);
+            share = itemView.findViewById(R.id.share_btn);
+            bookmark = itemView.findViewById(R.id.bookmark_btn);
         }
 
         public void bindTo(Product product) {
@@ -87,6 +92,24 @@ public class ProductFeedAdapter extends PagedListAdapter<Product, ProductFeedAda
             }else{
                 img.setImageResource(R.drawable.place);
             }
+
+            vote.setOnClickListener(x->{
+                votes.setText(String.valueOf(product.votes+1));
+                votes.setTextColor(Color.GREEN);
+            });
+
+            share.setOnClickListener(x->{
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                String shareBody = String.format("%s\n By-%s",product.name,product.founder);
+                intent.setType("text/plain");
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "I found this interesting.");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                itemView.getContext().startActivity(Intent.createChooser(intent, "Share using"));
+                    });
+
+            bookmark.setOnClickListener(x->{
+                Toast.makeText(itemView.getContext(),"Bookmarked",Toast.LENGTH_LONG).show();
+            });
         }
 
         public void clear() {

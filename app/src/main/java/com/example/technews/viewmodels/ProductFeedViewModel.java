@@ -1,5 +1,7 @@
 package com.example.technews.viewmodels;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.DataSource;
@@ -10,12 +12,27 @@ import com.example.technews.data.Product;
 import com.example.technews.data.ProductDataSource;
 import com.example.technews.data.ProductDataSourceFactory;
 
+import java.util.Objects;
+
 public class ProductFeedViewModel extends ViewModel {
-    private String filter;
-    public final LiveData<PagedList<Product>> productList;
-    private final DataSource<Integer,Product> mostRecentDataSource;
+    public LiveData<PagedList<Product>> productList;
+    private DataSource<Integer,Product> mostRecentDataSource;
+    private String mFilter;
 
     public ProductFeedViewModel(String FILTER){
+        initViewModel(FILTER);
+    }
+
+    public void invalidateDataSource() {
+        mostRecentDataSource.invalidate();
+    }
+
+    public void initViewModel(String FILTER){
+        if(Objects.equals(FILTER,mFilter)){
+            return;
+        }
+        mFilter = FILTER;
+        Log.d("ViewModel","init");
         ProductDataSourceFactory dataSourceFactory = new ProductDataSourceFactory(FILTER);
         mostRecentDataSource = dataSourceFactory.create();
 
@@ -26,9 +43,5 @@ public class ProductFeedViewModel extends ViewModel {
 
         productList = new LivePagedListBuilder<>(dataSourceFactory,pagedListConfig)
                 .build();
-    }
-
-    public void invalidateDataSource() {
-        mostRecentDataSource.invalidate();
     }
 }
